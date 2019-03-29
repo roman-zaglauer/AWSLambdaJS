@@ -1,7 +1,7 @@
 const assert = require('chai').assert;
 const settings = require('./../../assets/settings.json');
 const handler = require('./../../' + settings.source.main.path).handler;
-const event = require('./../' + settings.test.event);
+const event = require('./../../' + settings.assets.path + '/' + settings.assets.event);
 
 describe(settings.source.main.path, () => {
     it('Response Status Code should be of type number', () => {

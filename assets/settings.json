@@ -1,6 +1,7 @@
 {
-    "asset": {
-        "path": "gulp/assets"
+    "assets": {
+        "event": "event.json",
+        "path": "assets"
     },
     "source": {
         "path": "src",
@@ -23,7 +24,6 @@
     },
     "test": {
         "path": "test",
-        "event": "event.json",
         "unit": {
             "path": "test/unit"
         }
