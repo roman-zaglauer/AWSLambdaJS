@@ -63,7 +63,7 @@ gulp.task('zip:deploy', () => {
 });
 
 gulp.task('upload:deploy', () => {
-    return gulp.src(settings.output.path + settings.output.archive)
+    return gulp.src(settings.output.path + '/' + settings.output.archive)
         .pipe(awsLambda(config.lambda, credentials));
 });
 
