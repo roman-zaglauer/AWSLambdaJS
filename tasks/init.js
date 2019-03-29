@@ -30,19 +30,19 @@ gulp.task('credentials:init', (done) => {
         return gulp.src('./assets/' + fileCredentials)
             .pipe(prompt.prompt([{
                     type: 'input',
-                    name: 'accessKeyId',
+                    name: 'AccessKeyId',
                     message: 'AccessKey ID: ',
                     'default': credentials.accessKeyId
                 },
                 {
                     type: 'input',
-                    name: 'secretAccessKey',
+                    name: 'SecretAccessKey',
                     message: 'SecretAccessKey: ',
                     'default': credentials.secretAccessKey
                 },
                 {
                     type: 'input',
-                    name: 'region',
+                    name: 'Region',
                     message: 'Region: ',
                     'default': credentials.region
                 }
@@ -65,76 +65,76 @@ gulp.task('parameter:init', (done) => {
         return gulp.src('./assets/' + fileConfig)
             .pipe(prompt.prompt([{
                     type: 'input',
-                    name: 'functionName',
+                    name: 'FunctionName',
                     message: 'Function Name: ',
-                    'default': config.lambda.parameter.functionName
+                    'default': config.lambda.parameter.FunctionName
                 },
                 {
                     type: 'input',
-                    name: 'handler',
+                    name: 'Handler',
                     message: 'Handler: ',
-                    'default': config.lambda.parameter.handler
+                    'default': config.lambda.parameter.Handler
                 },
                 {
                     type: 'input',
-                    name: 'role',
+                    name: 'Role',
                     message: 'Role: ',
-                    'default': config.lambda.parameter.role
+                    'default': config.lambda.parameter.Role
                 },
                 {
                     type: 'input',
-                    name: 'runtime',
+                    name: 'Runtime',
                     message: 'Runtime: ',
-                    'default': config.lambda.parameter.runtime
+                    'default': config.lambda.parameter.Runtime
                 },
                 {
                     type: 'input',
-                    name: 'description',
+                    name: 'Description',
                     message: 'Description: ',
-                    'default': config.lambda.parameter.description
+                    'default': config.lambda.parameter.Description
                 },
                 {
                     type: 'input',
-                    name: 'memorySize',
+                    name: 'MemorySize',
                     message: 'MemorySize: ',
-                    'default': config.lambda.parameter.memorySize
+                    'default': config.lambda.parameter.MemorySize
                 },
                 {
                     type: 'input',
-                    name: 'timeout',
+                    name: 'Timeout',
                     message: 'Timeout: ',
-                    'default': config.lambda.parameter.timeout
+                    'default': config.lambda.parameter.Timeout
                 },
                 {
                     type: 'input',
-                    name: 'publish',
+                    name: 'Publish',
                     message: 'Publish: ',
-                    'default': config.lambda.parameter.publish
+                    'default': config.lambda.parameter.Publish
                 },
                 {
                     type: 'input',
-                    name: 's3Bucket',
+                    name: 'S3Bucket',
                     message: 'S3Bucket: ',
-                    'default': config.lambda.parameter.code.s3Bucket
+                    'default': config.lambda.parameter.Code.S3Bucket
                 },
                 {
                     type: 'input',
-                    name: 's3Key',
+                    name: 'S3Key',
                     message: 'S3Key: ',
-                    'default': config.lambda.parameter.code.s3Key
+                    'default': config.lambda.parameter.Code.S3Key
                 }
 
             ], (answer) => {
-                config.lambda.parameter.functionName = answer.functionName;
-                config.lambda.parameter.handler = answer.handler;
-                config.lambda.parameter.role = answer.role;
-                config.lambda.parameter.runtime = answer.runtime;
-                config.lambda.parameter.description = answer.description;
-                config.lambda.parameter.memorySize = answer.memorySize;
-                config.lambda.parameter.timeout = answer.timeout;
-                config.lambda.parameter.publish = answer.publish;
-                config.lambda.parameter.code.s3Bucket = answer.s3Bucket;
-                config.lambda.parameter.code.s3Key = answer.s3Key;
+                config.lambda.parameter.FunctionName = answer.FunctionName;
+                config.lambda.parameter.Handler = answer.Handler;
+                config.lambda.parameter.Role = answer.Role;
+                config.lambda.parameter.Runtime = answer.Runtime;
+                config.lambda.parameter.Description = answer.Description;
+                config.lambda.parameter.MemorySize = answer.MemorySize;
+                config.lambda.parameter.Timeout = answer.Timeout;
+                config.lambda.parameter.Publish = answer.Publish;
+                config.lambda.parameter.Code.S3Bucket = answer.S3Bucket;
+                config.lambda.parameter.Code.S3Key = answer.S3Key;
                 fs.writeFileSync('./assets/' + fileConfig, JSON.stringify(config), 'utf8');
                 log.info('File updated: ' + fileConfig);
             }));

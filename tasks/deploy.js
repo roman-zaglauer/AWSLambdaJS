@@ -64,7 +64,7 @@ gulp.task('zip:deploy', () => {
 
 gulp.task('upload:deploy', () => {
     return gulp.src(settings.output.path + '/' + settings.output.archive)
-        .pipe(awsLambda(config.lambda, credentials));
+        .pipe(awsLambda(credentials, config.lambda.parameter));
 });
 
 gulp.task('deploy', gulp.series('lint:deploy', 'clean:deploy', 'beautify:deploy', 'uglify:deploy', 'install:deploy', 'zip:deploy', 'upload:deploy'));

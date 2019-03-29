@@ -1,1 +1,19 @@
-{"lambda":{"arn":"","parameter":{"functionName":"","handler":"index.handler","role":"arn:aws:iam:xxxxxx","runtime":"nodejs","description":"","memorySize":128,"timeout":"3","publish":true,"code":{"s3Bucket":"","s3Key":"archive.zip"}}}}
+{
+    "lambda": {
+        "arn": "",
+        "parameter": {
+            "FunctionName": "",
+            "Handler": "index.handler",
+            "Role": "arn:aws:iam:xxxxxx",
+            "Runtime": "nodejs",
+            "Description": "",
+            "MemorySize": 128,
+            "Timeout": "3",
+            "Publish": true,
+            "Code": {
+                "S3Bucket": "",
+                "S3Key": "archive.zip"
+            }
+        }
+    }
+}
