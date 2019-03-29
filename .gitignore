@@ -15,4 +15,3 @@ docs/
 .project
 
 package-lock.json
-*.zip
