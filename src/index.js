@@ -1,11 +1,11 @@
 /**
  *  Lambda Function Handler
- * @param {JSON} event - Invoke Event
- * @returns {JSON} - Response
+ * @param {Object} event - Invoke Event
+ * @returns {Object} - Response
  */
 exports.handler = (event) => {
-							const response = {
-        statusCode: 200   ,
+    const response = {
+        statusCode: 200,
         body: JSON.stringify('Hello from Lambda!')
     };
     return response;
