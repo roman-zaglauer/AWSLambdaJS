@@ -1,0 +1,1 @@
+{"lambda":{"arn":"","parameter":{"functionName":"","handler":"index.handler","role":"arn:aws:iam:xxxxxx","runtime":"nodejs","description":"","memorySize":128,"timeout":"3","publish":true,"code":{"s3Bucket":"","s3Key":"archive.zip"}}}}

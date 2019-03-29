@@ -1,0 +1,35 @@
+{
+    "asset": {
+        "path": "gulp/assets"
+    },
+    "source": {
+        "path": "src",
+        "main": {
+            "path": "src/index.js"
+        }
+    },
+    "output": {
+        "path": "dist",
+        "archive": "archive.zip",
+        "tmp": {
+            "path": "dist/tmp"
+        },
+        "tmpDbg": {
+            "path": "dist/tmp-dbg"
+        }
+    },
+    "report": {
+        "path": "reports"
+    },
+    "test": {
+        "path": "test",
+        "event": "event.json",
+        "unit": {
+            "path": "test/unit"
+        }
+    },
+    "documentation": {
+        "path": "docs",
+        "archive": "archive.zip"
+    }
+}
