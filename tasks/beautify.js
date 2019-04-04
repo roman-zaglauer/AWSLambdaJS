@@ -1,4 +1,5 @@
-const settings = require('./../assets/settings.json');
+'use strict';
+const settings = require('./../assets/settings');
 const gulp = require('gulp');
 const beautify = require('gulp-jsbeautifier');
 

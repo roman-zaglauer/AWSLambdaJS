@@ -1,3 +1,4 @@
+'use strict';
 /**
  *  Lambda Function Handler
  * @param {Object} event - Invoke Event

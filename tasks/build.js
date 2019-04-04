@@ -1,8 +1,9 @@
+'use strict';
 const gulp = require('gulp');
 const install = require('gulp-install');
 const eslint = require('gulp-eslint');
 const log = require('fancy-log');
-const settings = require('./../assets/settings.json');
+const settings = require('./../assets/settings');
 const del = require('del');
 const zip = require('gulp-zip');
 const uglify = require('gulp-uglify-es').default;

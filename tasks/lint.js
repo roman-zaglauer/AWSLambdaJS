@@ -1,7 +1,9 @@
+'use strict';
+
 const gulp = require('gulp');
 const eslint = require('gulp-eslint');
 const log = require('fancy-log');
-const settings = require('./../assets/settings.json');
+const settings = require('./../assets/settings');
 
 gulp.task('lint', () => {
     return gulp.src([settings.source.path + '**/*.js', '!node_modules/**'])

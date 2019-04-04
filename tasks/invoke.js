@@ -1,4 +1,6 @@
-const settings = require('./../assets/settings.json');
+'use strict';
+
+const settings = require('./../assets/settings');
 const gulp = require('gulp');
 const handler = require('./../' + settings.source.main.path).handler;
 const event = require('./../' + settings.assets.path + '/' + settings.assets.event);

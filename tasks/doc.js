@@ -1,10 +1,12 @@
+'use strict';
+
 const gulp = require('gulp');
 const jsdoc = require('gulp-jsdoc3');
 const del = require('del');
 const log = require('fancy-log');
 const zip = require('gulp-zip');
-const settings = require('./../assets/settings.json');
-const config = require('./../assets/jsdoc.json');
+const settings = require('./../assets/settings');
+const config = require('./../assets/jsdoc');
 
 gulp.task('clean:doc', (done) => {
     log.info('Delete Folder: ' + settings.documentation.path);

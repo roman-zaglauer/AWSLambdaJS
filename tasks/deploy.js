@@ -1,3 +1,5 @@
+'use strict';
+
 const gulp = require('gulp');
 const install = require('gulp-install');
 const eslint = require('gulp-eslint');
@@ -5,9 +7,9 @@ const log = require('fancy-log');
 const del = require('del');
 const zip = require('gulp-zip');
 const awsLambda = require('gulp-aws-lambda');
-const settings = require('./../assets/settings.json');
-const credentials = require('./../assets/credentials.json');
-const config = require('./../assets/config.json');
+const settings = require('./../assets/settings');
+const credentials = require('./../assets/credentials');
+const config = require('./../assets/config');
 const uglify = require('gulp-uglify-es').default;
 const rename = require('gulp-rename');
 const sourcemaps = require('gulp-sourcemaps');
