@@ -31,7 +31,7 @@ $ npm install --global gulp-cli
 1. Download **AWSLambdaJS** via Git.
 
 ```
-$ git clone https://github.com/romanzaglauer/AWSLambdaJS.git
+$ git clone https://github.com/roman-zaglauer/AWSLambdaJS.git
 ```
 
 2. Install all dependencies needed for **AWSLambdaJS**.<br/>
@@ -56,7 +56,7 @@ or
 
 2. Open a command prompt inside this project folder.
 
-3. Extract the content of [master.zip](https://github.com/romanzaglauer/AWSLambdaJS/blob/master/master.zip)
+3. Extract the content of [master.zip](https://github.com/roman-zaglauer/AWSLambdaJS/blob/master/master.zip)
    into your project folder.
 
 5. Install all dependencies needed for **AWSLambdaJS**

@@ -36,7 +36,7 @@
         "no-unused-expressions": "warn",
         "no-use-before-define": ["warn", "nofunc"],
         "no-warning-comments": "warn",
-        "strict": ["error", "function"],
+        "strict": ["error", "global"],
         "valid-jsdoc": ["warn", {
             "requireReturn": false
         }],

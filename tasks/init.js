@@ -1,5 +1,7 @@
-const fileConfig = 'config.json';
-const fileCredentials = 'credentials.json';
+'use strict';
+
+const fileConfig = 'config';
+const fileCredentials = 'credentials';
 const gulp = require('gulp');
 const prompt = require('gulp-prompt');
 const log = require('fancy-log');
