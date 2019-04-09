@@ -20,11 +20,11 @@ gulp.task('lint:deploy', () => {
         .pipe(eslint())
         .pipe(eslint.format())
         .pipe(eslint.results(results => {
-            log('#############################');
+            log('====================================');
             log.info(`ESLint Total Results: ${results.length}`);
             log.warn(`ESLint Total Warnings: ${results.warningCount}`);
             log.error(`ESLint Total Errors: ${results.errorCount}`);
-            log('#############################');
+            log('====================================');
         }));
 });
 
@@ -43,6 +43,9 @@ gulp.task('install:deploy', () => {
 
 gulp.task('beautify:deploy', () => {
     return gulp.src(settings.source.path + '/**/*.js')
+        .pipe(rename((path) => {
+            path.basename += '.dbg';
+        }))
         .pipe(beautify())
         .pipe(gulp.dest(settings.output.path));
 });
@@ -58,9 +61,15 @@ gulp.task('uglify:deploy', function () {
         .pipe(gulp.dest(settings.output.path));
 });
 
-gulp.task('zip:deploy', () => {
-    return gulp.src([settings.output.path + '/**/*'])
+gulp.task('zipmin:deploy', () => {
+    return gulp.src([settings.output.path + '/**/*', '!' + settings.output.path + '/**/*.dbg.js'])
         .pipe(zip(settings.output.archive))
+        .pipe(gulp.dest(settings.output.path));
+});
+
+gulp.task('zipdbg:deploy', () => {
+    return gulp.src([settings.output.path + '/**/*', '!' + settings.output.path + '/**/*.min.js'])
+        .pipe(zip(settings.output.dbg))
         .pipe(gulp.dest(settings.output.path));
 });
 
@@ -69,4 +78,4 @@ gulp.task('upload:deploy', () => {
         .pipe(awsLambda(credentials, config.lambda.parameter));
 });
 
-gulp.task('deploy', gulp.series('lint:deploy', 'clean:deploy', 'beautify:deploy', 'uglify:deploy', 'install:deploy', 'zip:deploy', 'upload:deploy'));
+gulp.task('deploy', gulp.series('lint:deploy', 'clean:deploy', 'beautify:deploy', 'uglify:deploy', 'install:deploy', 'zipmin:deploy', 'zipdbg:deploy', 'upload:deploy'));

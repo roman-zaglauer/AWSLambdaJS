@@ -3,7 +3,7 @@ const gulp = require('gulp');
 const install = require('gulp-install');
 const eslint = require('gulp-eslint');
 const log = require('fancy-log');
-const settings = require('./../assets/settings');
+const settings = require('./../assets/settings.json');
 const del = require('del');
 const zip = require('gulp-zip');
 const uglify = require('gulp-uglify-es').default;
@@ -17,11 +17,11 @@ gulp.task('lint:build', () => {
         .pipe(eslint())
         .pipe(eslint.format())
         .pipe(eslint.results(results => {
-            log('#############################');
+            log('====================================');
             log.info(`ESLint Total Results: ${results.length}`);
             log.warn(`ESLint Total Warnings: ${results.warningCount}`);
             log.error(`ESLint Total Errors: ${results.errorCount}`);
-            log('#############################');
+            log('====================================');
         }));
 });
 

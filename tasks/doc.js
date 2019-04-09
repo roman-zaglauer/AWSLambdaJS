@@ -14,7 +14,7 @@ gulp.task('clean:doc', (done) => {
 });
 
 gulp.task('jsdoc:doc', (cb) => {
-    gulp.src(['README.md', './src/**/*.js'], {
+    gulp.src(['README.md', settings.source.path + '/**/*.js'], {
             read: false
         })
         .pipe(jsdoc(config, cb));
