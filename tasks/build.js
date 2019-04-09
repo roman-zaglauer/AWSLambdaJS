@@ -1,3 +1,4 @@
+'use strict';
 const gulp = require('gulp');
 const install = require('gulp-install');
 const eslint = require('gulp-eslint');
@@ -39,6 +40,9 @@ gulp.task('install:build', () => {
 
 gulp.task('beautify:build', () => {
     return gulp.src(settings.source.path + '/**/*.js')
+        .pipe(rename((path) => {
+            path.basename += '.dbg';
+        }))
         .pipe(beautify())
         .pipe(gulp.dest(settings.output.path));
 });
@@ -54,10 +58,16 @@ gulp.task('uglify:build', function () {
         .pipe(gulp.dest(settings.output.path));
 });
 
-gulp.task('zip:build', () => {
-    return gulp.src([settings.output.path + '/**/*'])
+gulp.task('zipmin:build', () => {
+    return gulp.src([settings.output.path + '/**/*', '!' + settings.output.path + '/**/*.dbg.js'])
         .pipe(zip(settings.output.archive))
         .pipe(gulp.dest(settings.output.path));
 });
 
-gulp.task('build', gulp.series('lint:build', 'clean:build', 'beautify:build', 'uglify:build', 'install:build', 'zip:build'));
+gulp.task('zipdbg:build', () => {
+    return gulp.src([settings.output.path + '/**/*', '!' + settings.output.path + '/**/*.min.js'])
+        .pipe(zip(settings.output.dbg))
+        .pipe(gulp.dest(settings.output.path));
+});
+
+gulp.task('build', gulp.series('lint:build', 'clean:build', 'beautify:build', 'uglify:build', 'install:build', 'zipmin:build', 'zipdbg:build'));

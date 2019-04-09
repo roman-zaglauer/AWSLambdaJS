@@ -7,17 +7,15 @@
         "path": "src",
         "main": {
             "path": "src/index.js"
+        },
+        "handler": {
+            "path": "src/handler.js"
         }
     },
     "output": {
         "path": "dist",
         "archive": "archive.zip",
-        "tmp": {
-            "path": "dist/tmp"
-        },
-        "tmpDbg": {
-            "path": "dist/tmp-dbg"
-        }
+        "dbg": "archive-dbg.zip"
     },
     "report": {
         "path": "reports"
@@ -26,6 +24,9 @@
         "path": "test",
         "unit": {
             "path": "test/unit"
+        },
+        "integration": {
+            "path": "test/integration"
         }
     },
     "documentation": {
