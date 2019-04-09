@@ -1,7 +1,7 @@
 'use strict';
 const gulp = require('gulp');
 const zip = require('gulp-zip');
-const settings = require('./../assets/settings.json');
+const settings = require('./../assets/settings');
 
 gulp.task('min:zip', () => {
     return gulp.src([settings.output.path + '/**/*', '!' + settings.output.path + '/**/*.dbg.js', '!' + settings.output.path + '/*.zip'])
