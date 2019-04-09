@@ -59,15 +59,32 @@ gulp.task('uglify:build', function () {
 });
 
 gulp.task('zipmin:build', () => {
-    return gulp.src([settings.output.path + '/**/*', '!' + settings.output.path + '/**/*.dbg.js'])
+    return gulp.src([
+            settings.output.path + '/**/*',
+            '!' + settings.output.path + '/**/*.dbg.js',
+            '!' + settings.output.path + '/*.zip'
+        ])
         .pipe(zip(settings.output.archive))
         .pipe(gulp.dest(settings.output.path));
 });
 
 gulp.task('zipdbg:build', () => {
-    return gulp.src([settings.output.path + '/**/*', '!' + settings.output.path + '/**/*.min.js'])
+    return gulp.src([
+            settings.output.path + '/**/*',
+            '!' + settings.output.path + '/**/*.min.js',
+            '!' + settings.output.path + '/*.zip'
+        ])
         .pipe(zip(settings.output.dbg))
         .pipe(gulp.dest(settings.output.path));
 });
 
-gulp.task('build', gulp.series('lint:build', 'clean:build', 'beautify:build', 'uglify:build', 'install:build', 'zipmin:build', 'zipdbg:build'));
+gulp.task('build',
+    gulp.series(
+        'lint:build',
+        'clean:build',
+        'beautify:build',
+        'uglify:build',
+        'install:build',
+        'zipmin:build',
+        'zipdbg:build'
+    ));

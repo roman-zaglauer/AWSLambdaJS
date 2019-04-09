@@ -62,13 +62,21 @@ gulp.task('uglify:deploy', function () {
 });
 
 gulp.task('zipmin:deploy', () => {
-    return gulp.src([settings.output.path + '/**/*', '!' + settings.output.path + '/**/*.dbg.js'])
+    return gulp.src([
+            settings.output.path + '/**/*',
+            '!' + settings.output.path + '/**/*.dbg.js',
+            '!' + settings.output.path + '/*.zip'
+        ])
         .pipe(zip(settings.output.archive))
         .pipe(gulp.dest(settings.output.path));
 });
 
 gulp.task('zipdbg:deploy', () => {
-    return gulp.src([settings.output.path + '/**/*', '!' + settings.output.path + '/**/*.min.js'])
+    return gulp.src([
+            settings.output.path + '/**/*',
+            '!' + settings.output.path + '/**/*.min.js',
+            '!' + settings.output.path + '/*.zip'
+        ])
         .pipe(zip(settings.output.dbg))
         .pipe(gulp.dest(settings.output.path));
 });
@@ -78,4 +86,14 @@ gulp.task('upload:deploy', () => {
         .pipe(awsLambda(credentials, config.lambda.parameter));
 });
 
-gulp.task('deploy', gulp.series('lint:deploy', 'clean:deploy', 'beautify:deploy', 'uglify:deploy', 'install:deploy', 'zipmin:deploy', 'zipdbg:deploy', 'upload:deploy'));
+gulp.task('deploy',
+    gulp.series(
+        'lint:deploy',
+        'clean:deploy',
+        'beautify:deploy',
+        'uglify:deploy',
+        'install:deploy',
+        'zipmin:deploy',
+        'zipdbg:deploy',
+        'upload:deploy'
+    ));

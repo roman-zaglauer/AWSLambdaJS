@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Template for AWS Lambda Functions",
   "private": true,
-  "main": "src/index.js",
+  "main": "src/index",
   "scripts": {
     "test": "gulp test",
     "doc": "gulp doc",
